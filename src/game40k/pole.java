@@ -5,11 +5,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-
+import java.util.Random;
 
 class pole extends JPanel
 	{
-		public int shizn = 3;
+
+		public int hp = 3;
 		private Image shapka;
 		private Image fon;
 		public int x = 400;
@@ -26,28 +27,33 @@ class pole extends JPanel
 			
 			try
 			{
-				shapka = ImageIO.read(new File("E:\\image\\game java\\Marine (4).png"));
+				shapka = ImageIO.read(new File("C:\\USB-\\Если флешка не работет, то все файлы на ней сюда\\java\\image\\game java\\Marine (4).png"));
 			}
 			catch(IOException ex) {}
 			
 			try
 			{
-				fon = ImageIO.read(new File("E:\\image\\game java\\2022-03-13_18-38-51.png"));
+				fon = ImageIO.read(new File("C:\\USB-\\Если флешка не работет, то все файлы на ней сюда\\java\\image\\game java\\2022-03-13_18-38-51.png"));
 			}
 			catch(IOException ex) {}
 			try
 			{
-				end_game = ImageIO.read(new File("E:\\image\\game java\\gameover (2).png"));
+				end_game = ImageIO.read(new File("C:\\USB-\\Если флешка не работет, то все файлы на ней сюда\\java\\image\\game java\\gameover (2).png"));
 			}
 			catch(IOException ex) {}
 			gamePodar = new podar[7];
+			
 			for(int i = 0; i<7;i++)
 			{
+				
 				try
 				{
-					gamePodar[i] = new podar(ImageIO.read(new File("E:\\image\\game java\\ork.png")));
+					double rnd = 3 * Math.random();
+					int rndi = (int) rnd + 1;
+					gamePodar[i] = new podar(ImageIO.read(new File("C:\\USB-\\Если флешка не работет, то все файлы на ней сюда\\java\\image\\game java\\Ork("+rndi+").png")));
 				}
-			catch(IOException ex) {}
+					
+				catch(IOException ex) {}
 			}
 			timerUpdate = new Timer(2000, new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -110,5 +116,6 @@ class pole extends JPanel
 				
 				
 				}
+
 	}
 	
